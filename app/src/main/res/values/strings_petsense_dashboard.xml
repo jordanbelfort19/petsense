@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ADDITIONS ONLY. %1$s placeholders are filled from DashboardViewModel (user name / pet name). -->
+<resources>
+    <string name="ps_dashboard_greeting">Welcome back, %1$s! \uD83D\uDC4B</string>
+    <string name="ps_dashboard_subtitle">How is %1$s doing today?</string>
+    <string name="ps_cd_menu">Open menu</string>
+    <string name="ps_cd_user_avatar">Your profile photo</string>
+    <string name="ps_cd_pet_illustration">Illustration of your pet</string>
+    <string name="ps_cd_pet_card_photo">Pet photo</string>
+    <string name="ps_cd_pet_card_photo_format">%1$s\'s photo</string>
+
+    <string name="ps_action_health_check">Health Check</string>
+    <string name="ps_action_behavior">Behavior Analysis</string>
+    <string name="ps_action_activity">Activity</string>
+    <string name="ps_action_care_history">Care History</string>
+    <string name="ps_action_profile_help">Profile</string>
+
+    <string name="ps_section_glance">Today at a Glance</string>
+    <string name="ps_health_score_status_good">Good</string>
+    <string name="ps_cd_health_score">Health score gauge</string>
+
+    <string name="ps_glance_sleep">Sleep</string>
+    <string name="ps_glance_sleep_value">8h 20m</string>
+    <string name="ps_glance_sleep_status">Good</string>
+
+    <string name="ps_glance_activity">Activity</string>
+    <string name="ps_glance_activity_value">2h 45m</string>
+    <string name="ps_glance_activity_status">Active</string>
+
+    <string name="ps_glance_feeding">Feeding</string>
+    <string name="ps_glance_feeding_value">2 / 2 meals</string>
+    <string name="ps_glance_feeding_status">On Track</string>
+
+    <string name="ps_glance_water">Water</string>
+    <string name="ps_glance_water_value">1.8 L</string>
+    <string name="ps_glance_water_status">Normal</string>
+
+    <string name="ps_care_reminder_title">Care reminder</string>
+    <string name="ps_care_reminder_detail">Next preventive task \u00b7 in 3 weeks</string>
+    <string name="ps_view_schedule">View</string>
+</resources>

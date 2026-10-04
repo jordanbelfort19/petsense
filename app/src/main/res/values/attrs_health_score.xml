@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HealthScoreView">
+        <attr name="score" format="integer" />
+        <attr name="maxScore" format="integer" />
+        <attr name="statusText" format="string" />
+        <attr name="gaugeStrokeWidth" format="dimension" />
+    </declare-styleable>
+</resources>

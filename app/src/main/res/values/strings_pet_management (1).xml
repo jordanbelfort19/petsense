@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ADDITIONS ONLY — merge into your existing strings.xml. -->
+<resources>
+    <string name="ps_cd_add_pet">Add a new pet</string>
+    <string name="ps_cd_pet_selector">Switch pet</string>
+    <string name="ps_pet_selector_sheet_title">Your pets</string>
+    <string name="ps_add_new_pet_row">+ Add a new pet</string>
+
+    <string name="ps_add_pet_title">Add a pet</string>
+    <string name="ps_field_species">Species</string>
+    <string name="ps_field_pet_name">Pet name</string>
+    <string name="ps_field_age">Age (e.g. 2 years, or 6 months)</string>
+    <string name="ps_field_breed">Breed (optional)</string>
+    <string name="ps_field_notes">Additional details (optional)</string>
+    <string name="ps_error_required">This field is required</string>
+    <string name="ps_save_pet">Save pet</string>
+    <string name="ps_cd_back">Back</string>
+
+    <string-array name="ps_species_options">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+        <item>Fish</item>
+        <item>Other</item>
+    </string-array>
+</resources>

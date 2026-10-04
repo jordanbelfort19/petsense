@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ADDITIONS ONLY. Do not duplicate/redefine ps_primary, ps_background, ps_surface,
+  ps_outline, ps_text_primary, ps_text_secondary, ps_primary_soft, ps_bottom_nav_item —
+  those already exist in your project and are reused as-is by the new dashboard.
+  Merge these lines into your existing colors.xml (or keep as this separate file,
+  both work as long as the module includes it).
+-->
+<resources>
+    <!-- Pastel backgrounds for the Quick Actions circles + their icon tint -->
+    <color name="ps_pastel_green">#DDF3E4</color>
+    <color name="ps_pastel_green_on">#2F9E5B</color>
+
+    <color name="ps_pastel_pink">#FBE2EA</color>
+    <color name="ps_pastel_pink_on">#D6567C</color>
+
+    <color name="ps_pastel_peach">#FCEBDA</color>
+    <color name="ps_pastel_peach_on">#E08A3C</color>
+
+    <color name="ps_pastel_blue">#DFEBFB</color>
+    <color name="ps_pastel_blue_on">#3E7BD6</color>
+
+    <color name="ps_pastel_lavender">#EDE7FB</color>
+    <color name="ps_pastel_lavender_on">#7C5CD6</color>
+
+    <!-- Health score gauge stroke: green (healthy end) -> primary lavender/purple (brand end) -->
+    <color name="ps_gauge_start">#4CAF7D</color>
+    <color name="ps_gauge_end">#8B6CE0</color>
+    <color name="ps_gauge_track">#EEEAF9</color>
+</resources>

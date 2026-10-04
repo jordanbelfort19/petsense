@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ps_primary_soft">#E3F3F1</color>
+    <color name="ps_success">#2E8B63</color>
+    <color name="ps_success_soft">#E4F4EB</color>
+    <color name="ps_neutral_soft">#EEF2F2</color>
+</resources>

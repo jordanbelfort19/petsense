@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ─── Spacing ───────────────────────────────────────── -->
+    <dimen name="ps_spacing_xs">4dp</dimen>
+    <dimen name="ps_spacing_sm">8dp</dimen>
+    <dimen name="ps_spacing_md">16dp</dimen>
+    <dimen name="ps_spacing_lg">24dp</dimen>
+    <dimen name="ps_spacing_xl">32dp</dimen>
+    <dimen name="ps_spacing_xxl">48dp</dimen>
+
+    <!-- ─── Corner Radii ──────────────────────────────────── -->
+    <dimen name="ps_corner_radius_sm">8dp</dimen>
+    <dimen name="ps_corner_radius_medium">12dp</dimen>
+    <dimen name="ps_card_corner_radius">16dp</dimen>
+    <dimen name="ps_card_corner_radius_large">28dp</dimen>
+    <dimen name="ps_button_corner_radius">50dp</dimen>
+
+    <!-- ─── Card Elevation ────────────────────────────────── -->
+    <dimen name="ps_card_elevation">2dp</dimen>
+    <dimen name="ps_card_elevation_large">8dp</dimen>
+
+    <!-- ─── Header / Pet Image ────────────────────────────── -->
+    <dimen name="ps_header_height">280dp</dimen>
+    <dimen name="ps_pet_image_size">140dp</dimen>
+    <dimen name="ps_pet_image_ring_size">148dp</dimen>
+    <dimen name="ps_pet_image_overlap">60dp</dimen>
+
+    <!-- ─── Profile Card ──────────────────────────────────── -->
+    <dimen name="ps_profile_card_margin_horizontal">16dp</dimen>
+    <dimen name="ps_profile_card_top_padding">80dp</dimen>
+    <dimen name="ps_profile_card_inner_padding">24dp</dimen>
+
+    <!-- ─── Stat Tiles ────────────────────────────────────── -->
+    <dimen name="ps_stat_icon_container_size">40dp</dimen>
+    <dimen name="ps_stat_icon_size">22dp</dimen>
+    <dimen name="ps_stat_corner_radius">12dp</dimen>
+    <dimen name="ps_stat_tile_padding">14dp</dimen>
+
+    <!-- ─── Buttons ───────────────────────────────────────── -->
+    <dimen name="ps_button_min_height">52dp</dimen>
+    <dimen name="ps_button_padding_vertical">14dp</dimen>
+
+    <!-- ─── Icon Buttons ──────────────────────────────────── -->
+    <dimen name="ps_icon_button_size">40dp</dimen>
+    <dimen name="ps_back_icon_size">20dp</dimen>
+
+    <!-- ─── Typography ───────────────────────────────────── -->
+    <dimen name="ps_text_pet_name">28sp</dimen>
+    <dimen name="ps_text_breed">15sp</dimen>
+    <dimen name="ps_text_section_title">17sp</dimen>
+    <dimen name="ps_text_body">14sp</dimen>
+    <dimen name="ps_text_label">12sp</dimen>
+    <dimen name="ps_text_stat_value">16sp</dimen>
+    <dimen name="ps_text_stat_label">11sp</dimen>
+
+    <!-- ─── Bottom Nav ────────────────────────────────────── -->
+    <dimen name="ps_bottom_nav_height">64dp</dimen>
+
+    <!-- ─── Divider ──────────────────────────────────────── -->
+    <dimen name="ps_divider_height">1dp</dimen>
+
+</resources>

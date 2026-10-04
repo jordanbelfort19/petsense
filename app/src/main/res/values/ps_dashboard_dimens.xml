@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ps_screen_padding">20dp</dimen>
+    <dimen name="ps_card_radius">20dp</dimen>
+    <dimen name="ps_tile_radius">18dp</dimen>
+    <dimen name="ps_button_radius">16dp</dimen>
+    <dimen name="ps_section_gap">28dp</dimen>
+    <dimen name="ps_pet_touch_target">44dp</dimen>
+    <dimen name="ps_pet_selector_avatar">32dp</dimen>
+    <dimen name="ps_pet_selector_radius">18dp</dimen>
+    <dimen name="ps_pet_row_avatar">44dp</dimen>
+</resources>

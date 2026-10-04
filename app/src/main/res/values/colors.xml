@@ -1,0 +1,66 @@
+<resources>
+    <color name="pet_primary">#2DD4BF</color> <!-- Modern, vibrant teal -->
+    <color name="pet_primary_dark">#0D9488</color>
+    <color name="pet_primary_light">#CCFBF1</color> <!-- Soft background tint -->
+    <color name="pet_accent">#F59E0B</color> <!-- Warm amber -->
+    <color name="pet_bg_color">#F8FAFC</color> <!-- Very soft slate gray/white -->
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1E293B</color> <!-- Deep slate -->
+    <color name="text_secondary">#64748B</color> <!-- Soft slate -->
+
+    <!-- Input field colors -->
+    <color name="input_bg">#FFFFFF</color>
+    <color name="input_stroke">#E2E8F0</color>
+
+    <!-- ─── Core System ─────────────────────────────────── -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ─── PetSense Brand Primary (warm teal/green) ────── -->
+    <color name="ps_primary">#3D8B7A</color>
+    <color name="ps_primary_variant">#2E6E60</color>
+    <color name="ps_primary_light">#C8E6E0</color>
+    <color name="ps_primary_container">#D4EDE8</color>
+    <color name="ps_on_primary">#FFFFFF</color>
+
+    <!-- ─── PetSense Secondary (warm amber/peach) ───────── -->
+    <color name="ps_secondary">#E8855A</color>
+    <color name="ps_secondary_light">#FDDDD0</color>
+    <color name="ps_secondary_container">#FDEEE7</color>
+    <color name="ps_on_secondary">#FFFFFF</color>
+
+    <!-- ─── Background & Surface ─────────────────────────── -->
+    <color name="ps_background">#F3F7F6</color>
+    <color name="ps_surface">#FFFFFF</color>
+    <color name="ps_surface_variant">#F8FAFA</color>
+    <color name="ps_card_background">#FFFFFF</color>
+
+    <!-- ─── Pastel Header Background ─────────────────────── -->
+    <color name="ps_header_bg_top">#C8E6E0</color>
+    <color name="ps_header_bg_bottom">#D4EDE8</color>
+
+    <!-- ─── Text Colors ───────────────────────────────────── -->
+    <color name="ps_text_primary">#1A2E2A</color>
+    <color name="ps_text_secondary">#5A7870</color>
+    <color name="ps_text_hint">#9DB8B0</color>
+    <color name="ps_text_on_surface">#1A2E2A</color>
+
+    <!-- ─── Divider / Border ──────────────────────────────── -->
+    <color name="ps_divider">#E8F0EE</color>
+    <color name="ps_outline">#C8DAD6</color>
+
+    <!-- ─── Stat / Health Tile Colors ─────────────────────── -->
+    <color name="ps_stat_green_bg">#E8F5F2</color>
+    <color name="ps_stat_green_icon">#3D8B7A</color>
+    <color name="ps_stat_amber_bg">#FFF3E0</color>
+    <color name="ps_stat_amber_icon">#E8855A</color>
+    <color name="ps_stat_blue_bg">#E3F2FD</color>
+    <color name="ps_stat_blue_icon">#5B9BD5</color>
+    <color name="ps_stat_purple_bg">#F3E5F5</color>
+    <color name="ps_stat_purple_icon">#9C6BA5</color>
+
+    <!-- ─── Scrim / Overlay ───────────────────────────────── -->
+    <color name="ps_scrim">#33000000</color>
+    <color name="ps_image_ring">#FFFFFF</color>
+</resources>

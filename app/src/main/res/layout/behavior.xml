@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/behaviorRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ps_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.behavior.BehaviorActivity">
+
+    <!-- TOP APP BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_ps_back"
+            android:contentDescription="Back"
+            app:tint="@color/ps_text_primary"/>
+        <TextView
+            style="@style/PS.Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Behavior Analysis"/>
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_ps_more_vert"
+            android:contentDescription="More options"
+            app:tint="@color/ps_text_primary"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/behaviorScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/ps_screen_padding"
+            android:paddingTop="16dp"
+            android:paddingBottom="28dp"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Title & Subtitle -->
+                <TextView
+                    android:id="@+id/tvBehaviorMainTitle"
+                    style="@style/PS.Text.Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Understand Max better"/>
+                <TextView
+                    android:id="@+id/tvBehaviorMainSubtitle"
+                    style="@style/PS.Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Analyze your pet's behavior using camera or video."/>
+
+                <!-- PET CONTEXT CARD -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/PS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivPetAvatarContext"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_pet_header_placeholder"
+                            android:background="@drawable/ps_bg_circle"
+                            android:backgroundTint="@color/ps_pastel_lavender"
+                            app:shapeAppearanceOverlay="@style/PS.ShapeAppearance.Circle" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="16dp">
+                            <TextView
+                                android:id="@+id/tvPetContextName"
+                                style="@style/PS.Text.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="Max"/>
+                            <TextView
+                                android:id="@+id/tvPetContextDetails"
+                                style="@style/PS.Text.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                tools:text="Golden Retriever • 2 Years"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ANALYSIS INPUT CARD / IDLE STATE -->
+                <LinearLayout
+                    android:id="@+id/layoutInputState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="24dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/PS.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp">
+
+                        <!-- NEW: FrameLayout to hold both placeholder and live camera -->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.camera.view.PreviewView
+                                android:id="@+id/viewFinder"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:id="@+id/cameraPlaceholder"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:background="@drawable/bg_camera_placeholder">
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/ic_ps_camera_outline"
+                                    app:tint="@color/ps_primary_soft"/>
+                                <TextView
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:textColor="@color/ps_text_secondary"
+                                    android:text="Camera Preview"/>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnStartCamera"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Start Camera Analysis"
+                        android:backgroundTint="@color/ps_primary"
+                        android:textColor="@color/ps_surface"
+                        app:icon="@drawable/ic_ps_camera_outline"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/ps_surface"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUploadVideo"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="Upload Video"
+                        app:strokeColor="@color/ps_outline"
+                        android:textColor="@color/ps_text_primary"
+                        app:icon="@drawable/ic_ps_video_upload"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/ps_primary"/>
+                </LinearLayout>
+
+                <!-- ANALYSIS PROGRESS STATE -->
+                <LinearLayout
+                    android:id="@+id/layoutProgressState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="48dp"
+                    android:visibility="gone">
+                    <ProgressBar
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:indeterminateTint="@color/ps_primary"/>
+                    <TextView
+                        android:id="@+id/tvProgressTitle"
+                        style="@style/PS.Text.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        tools:text="Analyzing Max..."/>
+                    <TextView
+                        style="@style/PS.Text.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Detecting movement and behavior..."/>
+                </LinearLayout>
+
+                <!-- BEHAVIOR RESULT STATE -->
+                <LinearLayout
+                    android:id="@+id/layoutResultState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="24dp"
+                    android:visibility="gone">
+
+                    <!-- RESULT CARD -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/PS.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/ps_pastel_green"
+                        app:strokeWidth="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="24dp">
+                            <TextView
+                                style="@style/PS.Text.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CURRENT BEHAVIOR"
+                                android:textColor="@color/ps_pastel_green_on"
+                                android:letterSpacing="0.05"
+                                android:textAllCaps="true"
+                                android:fontFamily="sans-serif-medium"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:id="@+id/tvResultEmoji"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="32sp"
+                                    tools:text="😌"/>
+                                <TextView
+                                    android:id="@+id/tvResultBehavior"
+                                    style="@style/PS.Text.Display"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="12dp"
+                                    android:textColor="@color/ps_pastel_green_on"
+                                    tools:text="Calm"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="end">
+                                    <TextView
+                                        style="@style/PS.Text.Caption"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/ps_pastel_green_on"
+                                        android:text="Confidence"/>
+                                    <TextView
+                                        android:id="@+id/tvResultConfidence"
+                                        style="@style/PS.Text.Title"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/ps_pastel_green_on"
+                                        tools:text="86%"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvResultExplanation"
+                                style="@style/PS.Text.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:textColor="@color/ps_pastel_green_on"
+                                tools:text="Max appears relaxed and is showing low-intensity movement."/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- BEHAVIOR INDICATORS GRID -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <!-- Motion -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/PS.Card.Tile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_ps_running"
+                                    app:tint="@color/ps_primary"/>
+                                <TextView
+                                    style="@style/PS.Text.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="Motion"/>
+                                <TextView
+                                    android:id="@+id/tvIndicatorMotion"
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    tools:text="Moderate"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Posture -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/PS.Card.Tile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_ps_resting"
+                                    app:tint="@color/ps_primary"/>
+                                <TextView
+                                    style="@style/PS.Text.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="Posture"/>
+                                <TextView
+                                    android:id="@+id/tvIndicatorPosture"
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    tools:text="Relaxed"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Energy -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/PS.Card.Tile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_ps_activity"
+                                    app:tint="@color/ps_primary"/>
+                                <TextView
+                                    style="@style/PS.Text.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="Energy"/>
+                                <TextView
+                                    android:id="@+id/tvIndicatorEnergy"
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    tools:text="Moderate"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <!-- AI INSIGHT CARD -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/PS.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_ps_insights"
+                                    app:tint="@color/ps_pastel_lavender_on"/>
+                                <TextView
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:textColor="@color/ps_pastel_lavender_on"
+                                    android:text="AI Insight"/>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvAiInsight"
+                                style="@style/PS.Text.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:textColor="@color/ps_text_primary"
+                                tools:text="Max is showing moderate activity with relaxed posture. The observed behavior is consistent with a calm state."/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="12dp"
+                                android:background="@color/ps_outline"/>
+
+                            <TextView
+                                style="@style/PS.Text.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="AI analysis is an observation, not a veterinary diagnosis."
+                                android:fontFamily="sans-serif"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- SUGGESTED ACTION CARD -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/PS.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="@color/ps_pastel_peach"
+                        app:strokeWidth="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_ps_paw"
+                                android:background="@drawable/ps_bg_circle"
+                                android:backgroundTint="@color/ps_surface"
+                                app:tint="@color/ps_pastel_peach_on"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="12dp">
+                                <TextView
+                                    android:id="@+id/tvActionSuggestionTitle"
+                                    style="@style/PS.Text.Label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/ps_pastel_peach_on"
+                                    tools:text="Suggested for Max"/>
+                                <TextView
+                                    android:id="@+id/tvActionSuggestionDesc"
+                                    style="@style/PS.Text.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:textColor="@color/ps_pastel_peach_on"
+                                    tools:text="Try a 10–15 minute play session later this evening."/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- START NEW ANALYSIS BUTTON -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnResetAnalysis"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Start New Analysis"
+                        android:textColor="@color/ps_primary"/>
+                </LinearLayout>
+
+                <!-- RECENT ANALYSES SECTION (Visible in both Idle and Result states) -->
+                <TextView
+                    style="@style/PS.Text.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Recent Analysis"/>
+
+                <!-- Empty State -->
+                <LinearLayout
+                    android:id="@+id/layoutHistoryEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingVertical="32dp">
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_ps_empty_observations"
+                        app:tint="@color/ps_primary_soft"/>
+                    <TextView
+                        style="@style/PS.Text.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No behavior analyses yet"/>
+                    <TextView
+                        style="@style/PS.Text.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Complete your first analysis to start building your pet's behavior history."/>
+                </LinearLayout>
+
+                <!-- Populated History List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecentAnalyses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+
+    <!-- BOTTOM NAVIGATION -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ps_outline" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ps_surface"
+        app:elevation="8dp"
+        app:itemIconTint="@color/ps_bottom_nav_item"
+        app:itemTextColor="@color/ps_bottom_nav_item"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+</LinearLayout>

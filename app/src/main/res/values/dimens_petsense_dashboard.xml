@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ADDITIONS ONLY — merge into your existing dimens.xml alongside ps_screen_padding, ps_section_gap. -->
+<resources>
+    <dimen name="ps_card_radius_xl">24dp</dimen>
+    <dimen name="ps_card_radius_lg">20dp</dimen>
+    <dimen name="ps_quick_action_circle">52dp</dimen>
+    <dimen name="ps_quick_action_icon">24dp</dimen>
+    <dimen name="ps_header_pet_illustration">88dp</dimen>
+    <dimen name="ps_header_avatar">40dp</dimen>
+    <dimen name="ps_pet_card_avatar">64dp</dimen>
+    <dimen name="ps_gauge_height">150dp</dimen>
+    <dimen name="ps_gauge_stroke_width">14dp</dimen>
+</resources>

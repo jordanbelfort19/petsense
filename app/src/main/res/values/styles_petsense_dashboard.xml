@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ADDITIONS ONLY. This is the one new style the redesigned dashboard needs —
+  a circular shape appearance for the two ShapeableImageViews (user avatar,
+  pet-card photo). Everything else (PS.Text.*, PS.Card*, PS.IconBubble,
+  PS.Button.Quick) is your existing styles.xml and is left untouched.
+-->
+<resources>
+    <style name="PS.ShapeAppearance.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

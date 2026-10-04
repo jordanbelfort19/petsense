@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvHistoryDate"
+            style="@style/PS.Text.Caption"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            tools:text="Today"/>
+
+        <TextView
+            android:id="@+id/tvHistoryEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            tools:text="😌"/>
+
+        <TextView
+            android:id="@+id/tvHistoryBehavior"
+            style="@style/PS.Text.Label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            tools:text="Calm"/>
+
+        <TextView
+            android:id="@+id/tvHistoryConfidence"
+            style="@style/PS.Text.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            tools:text="86%"/>
+
+        <TextView
+            android:id="@+id/tvHistoryTime"
+            style="@style/PS.Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="7:42 PM"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

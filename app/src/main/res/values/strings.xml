@@ -1,0 +1,53 @@
+
+<resources>
+
+<!-- App --><string name="app_name">pet</string>
+
+
+
+<!-- Pet Profile - Navigation -->
+<string name="cd_back_button">Go back</string>
+<string name="cd_more_options">More options</string>
+
+<!-- Pet Profile - Identity -->
+<string name="pet_name">Buddy</string>
+<string name="pet_breed">Golden Retriever</string>
+<string name="pet_age_value">2 Years</string>
+<string name="pet_weight_value">24 kg</string>
+<string name="pet_gender_value">Male</string>
+<string name="label_age">Age</string>
+<string name="label_weight">Weight</string>
+<string name="label_gender">Gender</string>
+<string name="cd_pet_photo">Photo of Buddy</string>
+
+<!-- Pet Profile - About -->
+<string name="about_title">About Buddy</string>
+<string name="about_text">Buddy is an active and friendly companion. PetSense helps you track Buddy\'s daily health, activity and behaviour — keeping every tail-wagging moment in check.</string>
+<string name="read_more">Read more</string>
+
+<!-- Pet Profile - Health Snapshot -->
+<string name="health_snapshot_title">Health Snapshot</string>
+<string name="stat_health_score_label">Health Score</string>
+<string name="stat_health_score_value">86%</string>
+<string name="stat_activity_label">Activity</string>
+<string name="stat_activity_value">Good</string>
+<string name="stat_sleep_label">Sleep</string>
+<string name="stat_sleep_value">8.2 hrs</string>
+<string name="stat_last_weight_label">Last Weight</string>
+<string name="stat_last_weight_value">24 kg</string>
+<string name="cd_health_score_icon">Health score icon</string>
+<string name="cd_activity_icon">Activity icon</string>
+<string name="cd_sleep_icon">Sleep icon</string>
+<string name="cd_weight_icon">Weight icon</string>
+
+<!-- Pet Profile - Actions -->
+<string name="btn_edit_profile">Edit Pet Profile</string>
+<string name="btn_manage_health">Manage Health Records</string>
+
+<!-- Bottom Nav -->
+<string name="nav_home">Home</string>
+<string name="nav_scan">Scan</string>
+<string name="nav_profile">Profile</string>
+<string name="nav_insights">Insights</string>
+
+</resources>

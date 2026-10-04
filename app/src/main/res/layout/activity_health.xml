@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/healthRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ps_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.health.HealthActivity">
+
+    <!-- TOP APP BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_ps_back"
+            android:contentDescription="Back"
+            app:tint="@color/ps_text_primary"/>
+        <TextView
+            style="@style/PS.Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Health Center"/>
+        
+        <!-- Right side: Pet Info -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginEnd="12dp">
+                <TextView
+                    android:id="@+id/tvHeaderPetName"
+                    style="@style/PS.Text.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Max"/>
+                <TextView
+                    android:id="@+id/tvHeaderPetDetails"
+                    style="@style/PS.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    tools:text="Golden Retriever • 2 Years"/>
+            </LinearLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivHeaderPetAvatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pet_header_placeholder"
+                android:background="@drawable/ps_bg_circle"
+                android:backgroundTint="@color/ps_pastel_lavender"
+                app:shapeAppearanceOverlay="@style/PS.ShapeAppearance.Circle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- CONTENT SCROLL -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/healthScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/ps_screen_padding"
+        android:paddingBottom="32dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- DATE / FILTER ROW -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp">
+                
+                <LinearLayout
+                    android:id="@+id/btnDateSelector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/ps_bg_pill"
+                    android:backgroundTint="@color/ps_surface"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:elevation="1dp">
+                    <TextView
+                        style="@style/PS.Text.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:textColor="@color/ps_primary"/>
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_ps_chevron"
+                        android:rotation="90"
+                        app:tint="@color/ps_primary"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+                
+                <ImageButton
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_ps_refresh"
+                    app:tint="@color/ps_text_secondary"/>
+                
+                <ImageButton
+                    android:id="@+id/btnInfo"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_ps_info"
+                    app:tint="@color/ps_text_secondary"/>
+            </LinearLayout>
+
+            <!-- HEALTH OVERVIEW GRID -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- CARD 1: HEALTH SCORE -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/PS.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/PS.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Health Score"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.05"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <!-- FrameLayout allows us to stack the text directly on top of the arc -->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp">
+
+                            <com.example.pet.ui.dashboard.HealthScoreView
+                                android:id="@+id/healthScoreView"
+                                android:layout_width="match_parent"
+                                android:layout_height="90dp"
+                                app:maxScore="100"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:layout_marginBottom="4dp">
+
+                                <TextView
+                                    android:id="@+id/tvHealthScoreValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="86"
+                                    android:textSize="32sp"
+                                    android:textColor="@color/ps_text_primary"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:includeFontPadding="false" />
+
+                                <!-- Status Pill matching the other cards in your theme -->
+                                <TextView
+                                    android:id="@+id/tvHealthScoreStatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:background="@drawable/bg_status_pill"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="4dp"
+                                    android:text="Good"
+                                    android:textColor="@color/ps_pastel_green_on"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif-medium" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD 2: ACTIVITY -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/PS.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            style="@style/PS.IconBubble"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_ps_activity"
+                            android:backgroundTint="@color/ps_pastel_peach"
+                            app:tint="@color/ps_pastel_peach_on"/>
+                        <TextView
+                            style="@style/PS.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Activity"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.05"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView
+                            android:id="@+id/tvActivityValue"
+                            style="@style/PS.Text.Display"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            tools:text="2h 45m"/>
+                        <TextView
+                            android:id="@+id/tvActivityStatus"
+                            style="@style/PS.Text.Pill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Active"
+                            android:textColor="@color/ps_pastel_peach_on"
+                            android:backgroundTint="@color/ps_pastel_peach"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD 3: SLEEP -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/PS.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            style="@style/PS.IconBubble"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_ps_sleep"
+                            android:backgroundTint="@color/ps_pastel_blue"
+                            app:tint="@color/ps_pastel_blue_on"/>
+                        <TextView
+                            style="@style/PS.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Sleep"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.05"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView
+                            android:id="@+id/tvSleepValue"
+                            style="@style/PS.Text.Display"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            tools:text="8h 20m"/>
+                        <TextView
+                            android:id="@+id/tvSleepStatus"
+                            style="@style/PS.Text.Pill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Good"
+                            android:textColor="@color/ps_pastel_blue_on"
+                            android:backgroundTint="@color/ps_pastel_blue"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD 4: FEEDING -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/PS.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            style="@style/PS.IconBubble"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_ps_nutrition"
+                            android:backgroundTint="@color/ps_pastel_green"
+                            app:tint="@color/ps_pastel_green_on"/>
+                        <TextView
+                            style="@style/PS.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Feeding"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.05"
+                            android:fontFamily="sans-serif-medium"/>
+                        <TextView
+                            android:id="@+id/tvFeedingValue"
+                            style="@style/PS.Text.Display"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            tools:text="2 / 2"/>
+                        <TextView
+                            android:id="@+id/tvFeedingStatus"
+                            style="@style/PS.Text.Pill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="On Track"
+                            android:textColor="@color/ps_pastel_green_on"
+                            android:backgroundTint="@color/ps_pastel_green"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- HEALTH INSIGHT CARD -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/PS.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/ps_surface">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_ps_lightbulb"
+                            app:tint="@color/ps_primary"/>
+                        <TextView
+                            style="@style/PS.Text.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/ps_primary"
+                            android:text="Health Insight"/>
+                    </LinearLayout>
+                    
+                    <TextView
+                        android:id="@+id/tvHealthInsight"
+                        style="@style/PS.Text.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/ps_text_primary"
+                        android:lineSpacingMultiplier="1.2"
+                        tools:text="Max is maintaining a healthy activity and sleep pattern today."/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- VIEW HEALTH DETAILS -->
+            <LinearLayout
+                android:id="@+id/btnViewDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp">
+                <TextView
+                    style="@style/PS.Text.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ps_primary"
+                    android:text="View Health Details"/>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_ps_arrow_forward"
+                    app:tint="@color/ps_primary"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- BOTTOM NAVIGATION -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ps_outline" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ps_surface"
+        app:elevation="8dp"
+        app:itemIconTint="@color/ps_bottom_nav_item"
+        app:itemTextColor="@color/ps_bottom_nav_item"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Cards -->
+    <style name="PS.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/ps_card_radius</item>
+        <item name="cardElevation">@dimen/ps_card_elevation</item>
+        <item name="cardBackgroundColor">@color/ps_surface</item>
+        <item name="strokeColor">@color/ps_outline</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="PS.Card.Clickable" parent="PS.Card">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="PS.Card.Tile" parent="PS.Card.Clickable">
+        <item name="cardCornerRadius">@dimen/ps_tile_radius</item>
+    </style>
+
+    <!-- Icon in a soft circle -->
+    <style name="PS.IconBubble" parent="">
+        <item name="android:background">@drawable/ps_bg_circle</item>
+        <item name="android:backgroundTint">@color/ps_primary_soft</item>
+        <item name="android:tint">@color/ps_primary</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- Typography -->
+    <style name="PS.Text" parent="">
+        <item name="android:textColor">@color/ps_text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="PS.Text.Brand" parent="PS.Text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PS.Text.Display" parent="PS.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PS.Text.Title" parent="PS.Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PS.Text.Section" parent="PS.Text">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PS.Text.Label" parent="PS.Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PS.Text.Value" parent="PS.Text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="PS.Text.Body" parent="PS.Text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/ps_text_secondary</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="PS.Text.Caption" parent="PS.Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/ps_text_secondary</item>
+    </style>
+
+    <style name="PS.Text.Pill" parent="PS.Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/ps_success</item>
+        <item name="android:background">@drawable/ps_bg_pill</item>
+        <item name="android:backgroundTint">@color/ps_success_soft</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <!-- Quick action button -->
+    <style name="PS.Button.Quick" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/ps_button_radius</item>
+        <item name="strokeColor">@color/ps_outline</item>
+        <item name="android:textColor">@color/ps_text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="iconTint">@color/ps_primary</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="backgroundTint">@color/ps_surface</item>
+    </style>
+</resources>

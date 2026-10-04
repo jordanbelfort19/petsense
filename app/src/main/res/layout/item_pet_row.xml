@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="4dp"
+    android:paddingVertical="10dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPetRowAvatar"
+        android:layout_width="@dimen/ps_pet_row_avatar"
+        android:layout_height="@dimen/ps_pet_row_avatar"
+        android:background="@color/ps_primary_soft"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_ps_paw"
+        app:shapeAppearanceOverlay="@style/PS.ShapeAppearance.Circle" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPetRowName"
+            style="@style/PS.Text.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Max" />
+
+        <TextView
+            android:id="@+id/tvPetRowMeta"
+            style="@style/PS.Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Dog · Golden Retriever" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivPetRowSelected"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_ps_check"
+        android:visibility="gone"
+        app:tint="@color/ps_primary" />
+
+</LinearLayout>
