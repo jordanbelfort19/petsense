@@ -6,23 +6,25 @@ The project combines Android application development, cloud data management, and
 
 ## 📱 App Screenshots
 
-### Main Dashboard
-![PetSense Dashboard](assets/screenshots/dashboard.png)
+## 📱 App Screenshots
 
-### Health Reports
-![PetSense Health Report](assets/screenshots/health-report.png)
+### Main Dashboard
+![PetSense Main Dashboard](assets/screenshots/main-dashboard.jpg)
+
+### Health Reports and Insights
+![PetSense Insights](assets/screenshots/insights.jpg)
 
 ### Health Anomaly Detection
-![PetSense Anomaly Detection](assets/screenshots/anomaly-detection.png)
-
-### Calendar-Based Health Records
-![PetSense Health Calendar](assets/screenshots/health-calendar.png)
+![PetSense Health Anomaly Detection](assets/screenshots/analysis.jpg)
 
 ### Pet Behavior Analysis
-![PetSense Behavior Analysis](assets/screenshots/behavior-analysis.png)
+![PetSense Behavior Analysis](assets/screenshots/behavior-analysis.jpg)
 
-### Login and Authentication
-![PetSense Login](assets/screenshots/login.png)
+### Behavior Analysis Results
+![PetSense Behavior Analysis Results](assets/screenshots/behavior-analysis-result.jpg)
+
+### Profile Screen
+![PetSense Profile](assets/screenshots/profile-screen.jpg)
 
 ## ✨ Key Features
 
